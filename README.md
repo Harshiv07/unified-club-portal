@@ -18,7 +18,11 @@
 * Event
   * Must have an event title, description, time, and register feature.
   * Can also contain posters.
-  * Real time registration and check-in stats.
+  * Real-time registration and check-in stats.
 * Club
   * Announcement page - announcements for their upcoming events.
-  * Email notifier - send emails to their members and/or event participants.
+  * Email notifier - email their members and/or event participants.
+
+### Usage:
+* Visit the deployed URL and sign up as a participant to join/leave events, rate feedback, view and register in clubs, and receive email notifications.
+* You must sign in as an admin to manage clubs, organize events, and view feedback. These are the test credentials for admin (email: pharshiv10@gmail.com, password: Light10)
