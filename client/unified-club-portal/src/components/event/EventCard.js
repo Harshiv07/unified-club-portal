@@ -58,38 +58,36 @@ export default function FeaturedPost(props) {
   const toDateString = `${toDate.getDate()}/${toDate.getMonth()}/${toDate.getFullYear()} ${toDate.getHours()}:${toDate.getMinutes()} `;
 
   return (
-    <Grid item>
-      <Card className={classes.card}>
-        <div className={classes.cardDetails}>
-          <CardContent>
-            <Typography component="h2" variant="h5">
-              {name}
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              {startDateString} to {toDateString}
-            </Typography>
-            <Typography variant="subtitle1" paragraph>
-              {desc}
-              <br />
-              Capacity: {capacity}
-            </Typography>
-            <Chip
-              color="secondary"
-              size="small"
-              label={statusText}
-              className={statusClass}
-            />
-          </CardContent>
-        </div>
-        <Hidden xsDown>
-          <CardMedia
-            className={classes.cardMedia}
-            image="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/zoom-background%2C-event%2Cpresentation-design-template-69f11bda0c4d7c9ccb155035a05493d9_screen.jpg?ts=1598358685"
-            title={name}
+    <Card className={classes.card}>
+      <div className={classes.cardDetails}>
+        <CardContent>
+          <Typography component='h2' variant='h5'>
+            {name}
+          </Typography>
+          <Typography variant='subtitle1' color='textSecondary'>
+            {startDateString} to {toDateString}
+          </Typography>
+          <Typography variant='subtitle1' paragraph>
+            {desc}
+            <br />
+            Capacity: {capacity}
+          </Typography>
+          <Chip
+            color='secondary'
+            size='small'
+            label={statusText}
+            className={statusClass}
           />
-        </Hidden>
-      </Card>
-    </Grid>
+        </CardContent>
+      </div>
+      <Hidden xsDown>
+        <CardMedia
+          className={classes.cardMedia}
+          image='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/zoom-background%2C-event%2Cpresentation-design-template-69f11bda0c4d7c9ccb155035a05493d9_screen.jpg?ts=1598358685'
+          title={name}
+        />
+      </Hidden>
+    </Card>
   );
 }
 
