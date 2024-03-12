@@ -1,34 +1,32 @@
-import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SignUp from './pages/SignUp';
-import Dashboard from './pages/Dashboard';
-import SignIn from './pages/SignIn';
-import ProvideAuth from './components/auth/ProvideAuth';
-import PrivateRoute from './components/auth/PrivateRoute';
-import ClubGrid from './pages/ClubGrid';
-import ClubForm from './pages/ClubForm';
-import ClubData from './pages/ClubData';
-import EventForm from './pages/EventForm';
-import EventData from './pages/EventData';
-import UserEvents from './pages/UserEvents';
+import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
+import SignIn from "./pages/SignIn";
+import ProvideAuth from "./components/auth/ProvideAuth";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import ClubGrid from "./pages/ClubGrid";
+import ClubForm from "./pages/ClubForm";
+import ClubData from "./pages/ClubData";
+import EventForm from "./pages/EventForm";
+import EventData from "./pages/EventData";
+import UserEvents from "./pages/UserEvents";
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <ProvideAuth>
         <Router>
           <Switch>
-            <Route
-              path='/signup'
-              exact
-              component={SignUp}>
-            </Route>
-            <Route
-              path='/signin'
-              exact
-              component={SignIn}>
-            </Route>
+            <Redirect exact from='/' to='/signin' />
+            <Route path='/signup' exact component={SignUp}></Route>
+            <Route path='/signin' exact component={SignIn}></Route>
             <PrivateRoute
               path='/clubs'
               exact
@@ -36,11 +34,12 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<ClubGrid />)
-                    }} />
+                      return <ClubGrid />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
             <PrivateRoute
               path='/club/form/:id'
               exact
@@ -48,11 +47,12 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<ClubForm />)
-                    }} />
+                      return <ClubForm />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
             <PrivateRoute
               path='/club/:id'
               exact
@@ -60,11 +60,12 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<ClubData />)
-                    }} />
+                      return <ClubData />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
             <PrivateRoute
               path='/event/new/:clubId/:eventId'
               exact
@@ -72,11 +73,12 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<EventForm />)
-                    }} />
+                      return <EventForm />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
             <PrivateRoute
               path='/event/:id'
               exact
@@ -84,11 +86,12 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<EventData />)
-                    }} />
+                      return <EventData />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
             <PrivateRoute
               path='/user/events'
               exact
@@ -96,20 +99,17 @@ function App() {
                 return (
                   <Dashboard
                     component={() => {
-                      return (<UserEvents />)
-                    }} />
+                      return <UserEvents />;
+                    }}
+                  />
                 );
-              }}>
-            </PrivateRoute>
+              }}
+            ></PrivateRoute>
           </Switch>
         </Router>
       </ProvideAuth>
-
-
     </div>
   );
 }
 
 export default App;
-
-
