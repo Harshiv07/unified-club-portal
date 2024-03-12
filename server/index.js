@@ -8,8 +8,6 @@ import resourceRouter from "./routes/resourceRoutes";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
-import path from "path";
-import multer from "multer";
 const envConfig = dotenv.config({ silent: true });
 
 if (envConfig.error) {
