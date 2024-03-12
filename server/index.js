@@ -8,11 +8,9 @@ import resourceRouter from "./routes/resourceRoutes";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
-const envConfig = dotenv.config({ silent: true });
+import path from "path";
 
-if (envConfig.error) {
-  throw envConfig.error;
-}
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json("Hello");
+  res.json("Unified Club Portal backend");
 });
 
 //setting primary routes
@@ -42,6 +40,13 @@ app.use("/event", eventRouter);
 app.use("/events", eventRouter);
 app.use("/resource", resourceRouter);
 
+app.use(express.static(path.join(__dirname, "./client", "./client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "./client", "./client/build", "index.html")
+  );
+});
 // Establishing connection with db
 mongoose
   .connect(CONNECTION_URL, connectionParams)
