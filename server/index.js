@@ -27,14 +27,13 @@ const connectionParams = {
 //For CORS
 app.use(cors({ origin: "*" }));
 
-// For build folder
-app.use(express.static(path.join(__dirname, "client", "build")));
-
 //using boody-parser to parse incoming request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 
 //setting primary routes
 app.use("/clubs", clubRouter);
@@ -44,11 +43,6 @@ app.use("/user", userRouter);
 app.use("/event", eventRouter);
 app.use("/events", eventRouter);
 app.use("/resource", resourceRouter);
-
-// Catchall route handler
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
 
 // Establishing connection with db
 mongoose
