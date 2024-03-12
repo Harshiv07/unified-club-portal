@@ -4,7 +4,8 @@
   "description": "\"Unified Club Portal\"",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm index.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,9 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.6.3",
     "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
